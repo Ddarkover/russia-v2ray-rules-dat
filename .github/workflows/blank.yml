@@ -22,10 +22,10 @@ jobs:
           echo "GEOSITE_URL=https://raw.githubusercontent.com/Ddarkover/russia-blocked-geosite/release/geosite.dat" >> $GITHUB_ENV
         shell: bash
 
-      - name: Checkout runetfreedom/geodat2srs
+      - name: Checkout Ddarkover/geodat2srs
         uses: actions/checkout@v4
         with:
-          repository: runetfreedom/geodat2srs
+          repository: Ddarkover/geodat2srs
           path: geodat2srs
 
       - name: Set up Go
