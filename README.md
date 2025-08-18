@@ -44,6 +44,10 @@
 - `geoip:ovh`
 - `geoip:hetzner`
 - `geoip:digitalocean`
+- `geoip:akamai`
+- `geoip:vultr`
+- `geoip:scaleway`
+- `geoip:cdn77`
 
 
 ### geosite.dat
