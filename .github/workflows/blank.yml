@@ -26,7 +26,7 @@ jobs:
           echo "GEOSITE_URL=https://raw.githubusercontent.com/Ddarkover/russia-blocked-geosite/release/geosite.dat" >> $GITHUB_ENV
         shell: bash
       - name: Checkout Ddarkover/geodat2srs
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: Ddarkover/geodat2srs
           path: geodat2srs
