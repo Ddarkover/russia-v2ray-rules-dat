@@ -1,92 +1,71 @@
-# Что это? 
+# Об этом репозитории
 
-Этот репозиторий содержит автоматически обновляемые правила маршрутизации [**V2Ray**](https://github.com/v2fly/v2ray-core), основанные на данных о заблокированных доменах и адресах в России.
+Здесь публикуются автоматически обновляемые файлы маршрутизации (`geoip.dat` и `geosite.dat`) для **V2Ray** и совместимых прокси-инструментов.  
+В их основе — данные о заблокированных доменах и IP-адресах на территории РФ.
 
-Распространяемые здесь файлы `geoip.dat` и `geosite.dat` могут использоваться в [V2Ray](https://github.com/v2fly/v2ray-core), [v2rayN](https://github.com/2dust/v2rayN), [Xray-core](https://github.com/XTLS/Xray-core), [mihomo](https://github.com/MetaCubeX/mihomo/tree/Meta), [hysteria](https://github.com/apernet/hysteria), [Trojan-Go](https://github.com/p4gefau1t/trojan-go), [leaf](https://github.com/eycorsican/leaf) и так далее.
+✅ Поддерживаются: [V2Ray](https://github.com/v2fly/v2ray-core), [v2rayN](https://github.com/2dust/v2rayN), [Xray-core](https://github.com/XTLS/Xray-core), [mihomo](https://github.com/MetaCubeX/mihomo/tree/Meta), [hysteria](https://github.com/apernet/hysteria), [Trojan-Go](https://github.com/p4gefau1t/trojan-go), [leaf](https://github.com/eycorsican/leaf) и другие.
 
-Этот репозиторий является официальным источником российских geo файлов для [v2rayN](https://github.com/2dust/v2rayN). 
+🔄 Частота обновления: **каждые 6 часов**.
 
-Репозиторий обновляется каждые 6 часов.
+---
 
-## Какие категории содержатся в файлах
+## Состав и категории
 
 ### geoip.dat
 
-`geoip.dat` генерируется в репозитории [@Ddarkover/russia-blocked-geoip](https://github.com/Ddarkover/russia-blocked-geoip)
+Генерируется из репозитория [@Ddarkover/russia-blocked-geoip](https://github.com/Ddarkover/russia-blocked-geoip)
 
-Основные категории:
+**Основные блоки:**
+- `ru-blocked` — на основе `ipresolve.lst` и `subnet.lst` от antifilter.download  
+- `ru-blocked-community` — на основе `community.lst` (community.antifilter.download)  
+- `re-filter` — на основе `ipsum.lst` из [re:filter](https://github.com/1andrevich/Re-filter-lists)
 
-- `ru-blocked` содержит `ipresolve.lst` и `subnet.lst` сервиса antifilter.download
-- `ru-blocked-community` содержит `community.lst` сервиса community.antifilter.download
-- `re-filter` содержит `ipsum.lst` из [re:filter](https://github.com/1andrevich/Re-filter-lists)
+**Дополнительные категории (по ASN):**
+`cloudflare`, `cloudfront`, `facebook`, `fastly`, `google`, `netflix`, `telegram`, `twitter`, `ddos-guard`, `yandex`
 
-Для вашего удобства в файлы включены несколько дополнительных категорий (на основе ASN):
-
-- `geoip:cloudflare`
-- `geoip:cloudfront`
-- `geoip:facebook`
-- `geoip:fastly`
-- `geoip:google`
-- `geoip:netflix`
-- `geoip:telegram`
-- `geoip:twitter`
-- `geoip:ddos-guard`
-- `geoip:yandex`
-- `geoip:network-solutions`
-- `geoip:wpengine`
-- `geoip:hostgator`
-- `geoip:ionos`
-- `geoip:dreamhost`
-- `geoip:aws`
-- `geoip:godaddy`
-- `geoip:bluehost`
-- `geoip:kamatera`
-- `geoip:ovh`
-- `geoip:hetzner`
-- `geoip:digitalocean`
-- `geoip:akamai`
-- `geoip:vultr`
-- `geoip:scaleway`
-- `geoip:cdn77`
-
+**Добавленные вручную (по ASN):**
+`network-solutions`, `wpengine`, `hostgator`, `ionos`, `dreamhost`, `aws`, `godaddy`, `bluehost`, `kamatera`, `ovh`, `hetzner`, `digitalocean`, `akamai`, `vultr`, `scaleway`, `cdn77`
 
 ### geosite.dat
 
-`geosite.dat` генерируется в репозитории [@Ddarkover/russia-blocked-geosite](https://github.com/Ddarkover/russia-blocked-geosite)
+Генерируется из репозитория [@Ddarkover/russia-blocked-geosite](https://github.com/Ddarkover/russia-blocked-geosite)
 
-Доступные категории:
+**Доступные категории:**
+- Все из [@v2fly/domain-list-community](https://github.com/v2fly/domain-list-community/tree/master/data): `google`, `discord`, `youtube`, `twitter`, `meta`, `openai` и др.
+- `ru-blocked` — заблокированные в РФ домены (`antifilter-download-community` + `re:filter`)
+- `ru-blocked-all` — **все известные** заблокированные домены РФ (≥700 тыс., использовать осторожно)
+- `ru-available-only-inside` — домены, доступные только внутри РФ
+- `antifilter-download` — все домены из antifilter.download (~700 тыс., с осторожностью)
+- `antifilter-download-community` — домены из community.antifilter.download
+- `refilter` — домены из re:filter
+- `category-ads-all` — рекламные домены
+- `win-spy` — телеметрия и аналитика Windows
+- `win-update` — обновления Windows
+- `win-extra` — прочие домены Windows
 
-- Все категории из [@v2fly/domain-list-community](https://github.com/v2fly/domain-list-community/tree/master/data). Включая: `google`, `discord`, `youtube`, `twitter`, `meta`, `openai` и так далее.
-- `geosite:ru-blocked` - заблокированные в России домены (`antifilter-download-community` + `re:filter`)
-- `geosite:ru-blocked-all` - **все известные** заблокированные в России домены (из всех источников сразу). Список содержит не менее 700 тысяч доменов, употреблять с осторожностью.
-- `geosite:ru-available-only-inside` - Домены, доступные только внутри России
-- `geosite:antifilter-download` - все домены из `antifilter.download` (почти 700 тысяч, употреблять с осторожностью)
-- `geosite:antifilter-download-community` - все домены из `community.antifilter.download`
-- `geosite:refilter` - все домены из `re:filter`
-- `geosite:category-ads-all` - все рекламные домены
-- `geosite:win-spy` - домены, используемые windows для слежки и сбора аналитики
-- `geosite:win-update` - домены, используемые windows для обновлений
-- `geosite:win-extra` - прочие домены, используемые windows
+---
 
-# Cкачать 
+## Скачать (последняя версия)
 
-По ссылкам ниже всегда доступна последняя версия файлов.
+- **geoip.dat**  
+  [https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geoip.dat](https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geoip.dat)
 
-- **geoip.dat**
-    - [https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geoip.dat](https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geoip.dat)
-- **geosite.dat**
-    - [https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geosite.dat](https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geosite.dat)
+- **geosite.dat**  
+  [https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geosite.dat](https://raw.githubusercontent.com/Ddarkover/russia-v2ray-rules-dat/release/geosite.dat)
 
+---
 
-## Cмежные проекты
+## Связанные проекты
 
-- [@Ddarkover/russia-blocked-geoip](https://github.com/Ddarkover/russia-blocked-geoip) - генерация geoip файлов
-- [@Ddarkover/russia-blocked-geosite](https://github.com/Ddarkover/russia-blocked-geosite) - генерация geosite файлов
-- [@Ddarkover/russia-v2ray-custom-routing-list](https://github.com/Ddarkover/russia-v2ray-custom-routing-list) - правила маршрутизации для различных клиентов
-- [@Ddarkover/geodat2srs](https://github.com/Ddarkover/geodat2srs) - конвертер geoip/geosite.dat в sing-box srs
+- [russia-blocked-geoip](https://github.com/Ddarkover/russia-blocked-geoip) — генерация geoip  
+- [russia-blocked-geosite](https://github.com/Ddarkover/russia-blocked-geosite) — генерация geosite  
+- [russia-v2ray-custom-routing-list](https://github.com/Ddarkover/russia-v2ray-custom-routing-list) — готовые правила маршрутизации  
+- [geodat2srs](https://github.com/Ddarkover/geodat2srs) — конвертер geoip/geosite.dat → sing-box srs
+
+---
 
 ## Благодарности
 
-- [antifilter.download](https://antifilter.download/) - за предоставление данных о заблокированных доменах и комьюнити для их обновления
-- [re:filter](https://github.com/1andrevich/Re-filter-lists) - за предоставление отфильтрованных данных о заблокированных доменах
-- [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) - за идею и основу этого проекта
+- [antifilter.download](https://antifilter.download/) — данные о блокировках и сообщество  
+- [re:filter](https://github.com/1andrevich/Re-filter-lists) — отфильтрованные списки блокировок  
+- [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat) — идея и основа проекта
